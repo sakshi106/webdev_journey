@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav++</title>
+    <link rel="stylesheet" href="nav++.css">
+<style>
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #000000 50%, #1a1a2e 100%);
+            min-height: 100vh;
+        }
+
+                .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            border-bottom: 1px solid #333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .logo {
+            position: relative;
+            cursor: pointer;
+        }
+        .logo-box {
+            position: relative;
+            background: #000;
+            padding: 12px 24px;
+            border-radius: 10px;
+            border: 2px solid rgba(6, 182, 212, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #06b6d4, #a855f7);
+            border-radius: 10px;
+            filter: blur(8px);
+            opacity: 0.6;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        .logo:hover .logo-box::before {
+            opacity: 1;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(to right, #06b6d4, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+ .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+                .nav-links a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 10px 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+
+
+ .nav-links a:hover::before {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(to right, #06b6d4, #a855f7);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 75%;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(17, 24, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(6, 182, 212, 0.3);
+            border-radius: 12px;
+            min-width: 220px;
+            margin-top: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            color: #ffffff;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 600;
+            border-radius: 0;
+        }
+
+        .dropdown-menu a::before {
+            border-radius: 0;
+            background: linear-gradient(to right, rgba(6, 182, 212, 0.3), rgba(168, 85, 247, 0.3));
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: linear-gradient(to right, rgba(6, 182, 212, 0.2), rgba(168, 85, 247, 0.2));
+        }
+
+
+        /* CTA Button */
+        .cta-button {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .cta-button button {
+            position: relative;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(to right, #0891b2, #9333ea);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .cta-button button::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(to right, #06b6d4, #a855f7, #ec4899);
+            border-radius: 12px;
+            filter: blur(12px);
+            opacity: 0.6;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.5);
+        }
+
+        .cta-button button:hover::before {
+            opacity: 1;
+        }
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-toggle span {
+            width: 30px;
+            height: 3px;
+            background: #ffffff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle:hover span {
+            background: #06b6d4;
+        }
+
+        .demo-content {
+            padding-top: 150px;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .demo-title {
+            font-size: 64px;
+            font-weight: 900;
+            background: linear-gradient(to right, #06b6d4, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .demo-subtitle {
+            font-size: 20px;
+            color: #d1d5db;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: #111827;
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                border-top: 1px solid #333;
+            }
+
+            .nav-links.active {
+                max-height: 500px;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                padding: 20px;
+                font-size: 18px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                border: none;
+                border-top: 1px solid #333;
+                margin-top: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .dropdown.active .dropdown-menu {
+                max-height: 300px;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 20px;
+                margin-left: 0;
+            }
+
+            .cta-button button {
+                width: 100%;
+                padding: 18px;
+                font-size: 18px;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .demo-title {
+                font-size: 40px;
+            }
+
+            .demo-subtitle {
+                font-size: 16px;
+            }
+        }
+
+
+</style>
+
+</head>
+<body>
+<nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-box">
+                    <span class="logo-text">NEXUS</span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li class="dropdown">
+                    <a href="#services" class="dropdown-toggle">
+                        Services
+                        <span>▼</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#web-design">Web Design</a>
+                        <a href="#development">Development</a>
+                        <a href="#seo">SEO</a>
+                        <a href="#marketing">Marketing</a>
+                    </div>
+                </li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="cta-button">
+                    <button>Get Started</button>
+                </li>
+            </ul>
+
+            <!-- Mobile Toggle -->
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Demo Content -->
+    <div class="demo-content">
+        <h1 class="demo-title">Premium Navbar</h1>
+        <p class="demo-subtitle">
+            A stunning, responsive navigation bar with 3D effects, smooth animations, and dropdown menus. 
+            Built with pure HTML and CSS - perfect for practice and learning!
+        </p>
+    </div>
+     <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        const dropdown = document.querySelector('.dropdown');
+
+        mobileToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Mobile Dropdown Toggle
+        if (window.innerWidth <= 768) {
+            dropdown.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.classList.toggle('active');
+            });
+        }
+    </script>
+
+    
+</body>
+</html>
