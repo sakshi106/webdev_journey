@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-<style>
-*{
+    <style>
+        *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -156,66 +156,99 @@ nav ul li a:hover{
 
 }
 
-.reservation-content{
+.form {
+  padding: 80px 60px;
+  background: #f9f9f9;
+}
+
+.form h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+/* MAIN LAYOUT */
+.form-one {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  background: #fff;
   padding: 40px;
-  background:#f9f9f9;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
-.reservation img{
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 20px;
+/* FORM GRID */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.form h1{
-    margin-bottom: 80px;
-    text-align: center;
+.form-format {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-form{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:15px;
-    
+/* LABELS */
+label {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 6px;
+  display: inline-block;
 }
 
-/*form label{
-    grid-column: span 2;
-    font-size: 14px;
-    color: #555;
-}*/
-
-
-form input, form select, form textarea{
-  padding:12px;
-  border:1px solid #ddd;
-  border-radius:6px;
-  width:100%;
+/* INPUTS */
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
 }
 
-form textarea{
-  grid-column:span 2;
+input:focus,
+textarea:focus {
+  border-color: #ff5a4f;
+  box-shadow: 0 0 0 2px rgba(255, 90, 79, 0.2);
 }
 
-
-form button{
-    grid-column:span 2;
-    display: flex;
-    justify-content: center;
- align-items: center;
-  padding:14px;
-  background:#ff5a4f;
-  color:#fff;
-  border:none;
-  border-radius:30px;
-  cursor:pointer;
+/* TEXTAREA */
+textarea {
+  resize: none;
 }
 
+/* BUTTON */
+button {
+  width: fit-content;
+  padding: 14px 30px;
+  background: #ff5a4f;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #e64a40;
+}
+
+/* IMAGE */
+.form-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
 
 footer{
     background-color: rgb(46, 42, 42);
@@ -246,7 +279,7 @@ footer p{
     text-align: center;
     color: #fff;
 }
-</style>
+    </style>
 </head>
 <body>
     <nav>
@@ -334,44 +367,66 @@ footer p{
         </div>
     </section>
 
-    <section class="reservation">
-        <div class="reservation-content">
+    <section class="form">
+  <h1>Make a Reservation</h1>
 
+  <div class="form-one">
 
+    <!-- FORM -->
+    <form action="#" method="post">
 
-            <div class="form">
-                <h1>Make a Reservation</h1>
-                
-                <form action="">
-                    <label for="name">Fullname</label><br>
-                    <input type="text" id="name">
+      <div class="form-format">
+        <div>
+          <label for="fullname">Full Name</label><br>
+          <input type="text" id="fullname" name="fullname" placeholder="Enter Full Name">
+        </div>
 
-                    <label for="email">Email</label><br>
-                    <input type="email" id="email">
+        <div>
+          <label for="email">Email</label><br>
+          <input type="email" id="email" name="email" placeholder="Enter Email">
+        </div>
+      </div>
 
-                    <label for="phone">Phone number</label><br>
-                    <input type="tel" id="phone">
+      <div class="form-format">
+        <div>
+          <label for="phone">Phone Number</label><br>
+          <input type="tel" id="phone" name="phone" placeholder="Enter Phone Number">
+        </div>
 
-                    <label for="date">Date</label><br>
-                    <input type="date" id="date">
+        <div>
+          <label for="date">Date</label><br>
+          <input type="date" id="date" name="date">
+        </div>
+      </div>
 
-                    <label for="time">time</label><br>
-                    <input type="time" id="time">
+      <div class="form-format">
+        <div>
+          <label for="time">Time</label><br>
+          <input type="time" id="time" name="time">
+        </div>
 
-          <select><option>Select Time</option></select>
-          <br>
-          <select><option>Select Guests</option></select>
-          <br>
+        <div>
+          <label for="guest">Number of Guests</label><br>
+          <input type="number" id="guest" name="guest" min="1" placeholder="Select Guests">
+        </div>
+      </div>
 
-          <textarea rows="4" placeholder="Special Requests"></textarea>
-          <br>
-          <button>Reserve Table</button>
+      <div>
+        <label for="request">Special Requests</label><br>
+        <textarea id="request" name="request" rows="4"
+          placeholder="Any dietary restrictions or special occasions?"></textarea>
+      </div>
 
+      <button type="submit">Reserve Table</button>
     </form>
- </div>
- <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c">
-</div>
-        
+
+    <!-- IMAGE -->
+    <div class="form-img">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?fm=jpg&q=60&w=3000"
+        alt="Restaurant tables">
+    </div>
+
+  </div>
 </section>
 
 <footer>
