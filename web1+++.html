@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    box-shadow: 0 2px 2px rgba(0, 0,0, 0.5);
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.logo span{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:#ff5a4f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+
+nav ul{
+    display: flex;
+   gap:30px;
+    list-style: none;
+    
+}
+
+nav ul li a{
+    display: flex;
+    text-decoration: none;
+    color: rgb(67, 64, 64);
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+nav ul li a.active{
+  border:1px solid #ff5a4f;
+  color:#ff5a4f;
+}
+
+nav ul li a:hover{
+    background:#ff5a4f;
+    color:#fff;
+}
+
+.main{
+    position: relative;
+    background-color: antiquewhite;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    padding:80px 60px;
+    margin-bottom: 2rem;
+    
+}
+.main h1{
+    margin-bottom: 30px;
+}
+
+.reserv-table{
+    padding: 25px 40px;
+    border-radius: 15px;
+    background-color: #ff5a4f;
+    border: none;
+    color: #fff;
+}
+
+
+
+.menu h1{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.menu-cards{
+   display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px;
+    padding: 80px 60px;
+    position: relative;
+
+}
+
+.card{
+    background: #d5cfcf;
+    border-radius: 15px;
+    overflow: hidden;
+    padding:15px 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    box-shadow:0 2px 2px rgba(0, 0,0, 0.5) ;
+    position: relative;
+
+}
+
+.card img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+
+}
+
+.card h2{
+    text-align: left;
+    color: black;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.card p{
+    color: rgb(50, 47, 47);
+    margin-bottom: 10px;
+}
+
+.card .price{
+    color: #ff5a4f;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.view{
+    width: 100%;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid tomato;
+    color: #ff5a4f;
+    border-radius: 30px;
+    cursor: pointer;
+
+}
+
+.reservation-content{
+  padding: 40px;
+  background:#f9f9f9;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.reservation img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.form h1{
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:15px;
+    
+}
+
+/*form label{
+    grid-column: span 2;
+    font-size: 14px;
+    color: #555;
+}*/
+
+
+form input, form select, form textarea{
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  width:100%;
+}
+
+form textarea{
+  grid-column:span 2;
+}
+
+
+form button{
+    grid-column:span 2;
+    display: flex;
+    justify-content: center;
+ align-items: center;
+  padding:14px;
+  background:#ff5a4f;
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+
+footer{
+    background-color: rgb(46, 42, 42);
+}
+
+.footer-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px;
+    padding: 20px 30px;
+    color: #fff;
+    text-align: center;
+}
+
+footer h4{
+    color: #ff5a4f;
+    margin-bottom: 20px;
+}
+
+footer p{
+    margin-bottom: 10px;
+}
+
+.footer-bottom{
+    
+    margin-top: 20px;
+
+    text-align: center;
+    color: #fff;
+}
+</style>
+</head>
+<body>
+    <nav>
+  <div class="logo">
+    <span>o</span>
+    Bistro Elegance
+  </div>
+  <ul>
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Reservations</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+    <section class="main">
+        <div class="main-content">
+            <h1>Welcome to Bisto <br>
+            Elegance</h1>
+        </div>
+
+        <button class="reserv-table">Reserv your table</button>
+    </section>
+
+    <section class="menu">
+        <div class="menu-content">
+            <h1>Our Signature Menu</h1>
+        </div>
+        <div class="menu-cards">
+            <div class="card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.-Ei0NCm3I0gLSDUA16sj4AHaE8?pid=Api" alt="">
+                <h2>pasta</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ipsum?</p>
+                <p class="price">$32</p>
+                <button class="view">view ingrediants</button>
+
+            </div>
+    
+            <div class="card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.-Ei0NCm3I0gLSDUA16sj4AHaE8?pid=Api" alt="">
+                <h2>pasta</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ipsum?</p>
+                <p class="price">$32</p>
+                <button class="view">view ingrediants</button>
+
+            </div>
+        
+            <div class="card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.-Ei0NCm3I0gLSDUA16sj4AHaE8?pid=Api" alt="">
+                <h2>pasta</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ipsum?</p>
+                <p class="price">$32</p>
+                <button class="view">view ingrediants</button>
+
+            </div>
+       
+            <div class="card">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.QKUeTKOjBg5zpKDT8lM_EQHaE7?pid=Api&P=0&h=180" alt="">
+                <h2>pasta</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ipsum?</p>
+                <p class="price">$32</p>
+                <button class="view">view ingrediants</button>
+
+            </div>
+        
+            <div class="card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.-Ei0NCm3I0gLSDUA16sj4AHaE8?pid=Api" alt="">
+                <h2>pasta</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ipsum?</p>
+                <p class="price">$32</p>
+                <button class="view">view ingrediants</button>
+
+            </div>
+        
+            <div class="card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.-Ei0NCm3I0gLSDUA16sj4AHaE8?pid=Api" alt="">
+                <h2>pasta</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ipsum?</p>
+                <p class="price">$32</p>
+                <button class="view">view ingrediants</button>
+
+            </div>
+
+            
+        </div>
+    </section>
+
+    <section class="reservation">
+        <div class="reservation-content">
+
+
+
+            <div class="form">
+                <h1>Make a Reservation</h1>
+                
+                <form action="">
+                    <label for="name">Fullname</label><br>
+                    <input type="text" id="name">
+
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email">
+
+                    <label for="phone">Phone number</label><br>
+                    <input type="tel" id="phone">
+
+                    <label for="date">Date</label><br>
+                    <input type="date" id="date">
+
+                    <label for="time">time</label><br>
+                    <input type="time" id="time">
+
+          <select><option>Select Time</option></select>
+          <br>
+          <select><option>Select Guests</option></select>
+          <br>
+
+          <textarea rows="4" placeholder="Special Requests"></textarea>
+          <br>
+          <button>Reserve Table</button>
+
+    </form>
+ </div>
+ <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c">
+</div>
+        
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Contact Us</h4>
+      <p>123 Culinary Street<br>Gourmet District</p>
+      <p>Phone-9764478900</p>
+      <p>Email: email@.com</p>
+    </div>
+    <div>
+      <h4>Opening Hours</h4>
+      <p>Mon–Thu: 5PM–10PM<br>Fri–Sat: 5PM–11PM</p>
+      <p>close today</p>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <p>Facebook<br>Instagram<br>Twitter <br>linkdian</p>
+    </div>
+  </div>
+<hr>
+  <div class="footer-bottom">
+    © 2026 Bistro Elegance. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
