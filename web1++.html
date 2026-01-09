@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="webdev1++.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.4;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+
+}
+.first {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(rgb(56, 56, 188) 0%, rgb(222, 133, 148) 100%);
+}
+
+.nav {
+  padding: 0 40px;
+}
+
+.logo span {
+  color: rgb(40, 74, 210);
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 10px 25px;
+  border-radius: 30px;
+}
+nav ul a {
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  gap: 20px;
+
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+}
+
+nav ul a:hover {
+  transform: translateY(-5);
+  background-color: black;
+  color: #fff;
+}
+
+.navbar button {
+  border: none;
+  background-color: tomato;
+  padding: 10px 25px;
+  border-radius: 25px;
+  margin-right: 30px;
+}
+.hero{
+background: url("https://tse2.mm.bing.net/th/id/OIP.3AiMlZW7obCw8uVnrDqJogHaE8?pid=Api&P=0&h=180") no-repeat ;
+width: 100%;
+background-size: cover;
+background-position: center;
+height: 100vh;
+}
+
+.hero h1{
+  color: #cb10b5;
+  font-size: 48px;
+  font-weight: 600;
+  text-align: left;
+  padding: 80px 0px;
+}
+
+.hero p{
+  color: #1b1919;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.hero-btn{
+  background-color: aqua;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 2rem;
+}
+
+.content{
+  padding-left: 50px;
+  position: relative;
+}
+
+.chota-div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+
+}
+
+.chotu button{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  gap:25px;
+}
+
+.image{
+margin-right: 50px;
+    height:240px;
+    width: 320px;
+    background: lightgray;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+
+}
+
+.image img{
+  overflow: hidden;
+  border-radius: 15px;
+
+  
+}
+.div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div button{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  margin-bottom: 1rem;
+  
+
+}
+
+.div p{
+  text-align: center;
+  font-size: medium;
+  padding-right: 80px;
+}
+
+.about{
+  height: 100%;
+  width: 100%;
+  padding: 80px 40px;
+  text-align: center;
+}
+.about-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.about-content h1{
+  text-transform: uppercase;
+}
+
+.about-cards{
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  width:100%;
+  height: 100%;
+  gap:15px;
+  
+}
+
+.card img{
+  width: 100%;
+  height: 300px;        
+  object-fit: center;   
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0,0 ,0,0.5);
+ 
+}
+
+.bolg{
+    height: 100%;
+  width: 100%;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+
+ .blog-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 🔥 side by side */
+  gap: 40px;
+  align-items: center;
+   padding: 80px 40px;
+}
+
+.blog-img img {
+  width: 100%;
+  height: 100;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.blog-info h1 {
+  font-size: 42px;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.blog-info p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.blog-info h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  margin-top: 15px;
+}
+.blog-info button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #3455cd;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.switch{
+      height: 100%;
+  width: 100%;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.switch-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;   
+  gap: 40px;
+  align-items: center;
+   padding: 80px 40px;
+
+}
+
+.switch-content h1{
+    font-size: 42px;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.switch-content p{
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.switch-content h4{
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.switch-content img {
+   width: 100%;
+  height: 100;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.feedback{
+  height: 100%;
+  width: 100%;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.feedback-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:2rem;
+  
+}
+
+.feedback-card{
+  background-color: lightblue;
+  height: 250px;
+  border-radius: 10px;
+
+}
+
+.top h1{
+  text-align: left;
+  padding-left: 20px;
+}
+
+ .header{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: rgb(232, 205, 56);
+}
+  </style>
+</head>
+<body>
+    <div class="navbar">
+    <div class="first">
+    <div class="logo">
+        <span>solar</span>
+    </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">home</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#content">content</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+    <button> signUP</button>
+    </div>
+    </div>
+
+    <section class="hero">
+        <div class="content">
+            <h1>EXPERINCE THE BENITTS <br> OF THE SOLOR POWER</h1>
+            <p>Lorem ipsum dolor sit amet consectetur <br>adipisicing elit. Suscipit cum tempora mollitia praesentium facere magni natus </p>
+            <button class="hero-btn"> start today</button>
+        </div>
+
+        <div class="chota-div">
+            <div class="chotu">
+                <button><</button>
+                <button>></button>
+            </div>
+            <div class="image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1RKZtfxqsQyl-ivqE3mpLoqEg39bBvafBg&s" alt="">
+                <div class="div">
+                <button class="img-btn">-></button>
+                <p>Lorem ipsum dolor <br> sit amet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-content">
+            <h1>discover excellence <br> in real <br> state</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero itaque qui cum optio at ullam.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, nesciunt. Facilis illum enim corrupti! Aperiam natus repudiandae eum accusantium voluptatum vel provident, cupiditate, fuga libero ipsa repellat veniam voluptatem excepturi, esse inventore sequi facilis corrupti eaque soluta nemo est a saepe perferendis dicta! Atque neque veniam ipsum beatae exercitationem quae.
+            </p>
+            </div>
+            <div class="about-cards">
+                <div class="card">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.MNOAfi2YnFMTmorUnOJZYgHaLE?pid=Api&P=0&h=180" alt="">
+                    <h3>public space</h3>
+                </div>
+
+                <div class="card">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.MNOAfi2YnFMTmorUnOJZYgHaLE?pid=Api&P=0&h=180" alt="">
+                    <h3>public space</h3>
+                </div>
+
+                <div class="card">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.MNOAfi2YnFMTmorUnOJZYgHaLE?pid=Api&P=0&h=180" alt="">
+                    <h3>public space</h3>
+                </div>
+
+
+            
+        </div>
+    </section>
+
+    <section class="blog">
+        <div class="blog-content">
+            <div class="blog-img">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.saZy81WszrJ37sUPRb_FVgHaE7?pid=Api&P=0&h=180" alt="">
+            </div>
+            <div class="blog-info">
+                <h1>Benifites of ennable ENERGY !!</h1>
+                <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium veniam minima distinctio magni aspernatur saepe quis cupiditate voluptates molestias, iste fugiat quaerat asperiores modi repudiandae.
+                </P>
+                
+                <h2><span class="icon"></span>Lorem ipsum dolor sit amet consectetur.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, non eaque! Aperiam, ipsum? Aspernatur qui corporis sit, nam modi ducimus.</p>
+
+                <h2><span class="icon"></span>Lorem ipsum dolor sit amet consectetur.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, non eaque! Aperiam, ipsum? Aspernatur qui corporis sit, nam modi ducimus.</p>
+                
+                <button >expore More</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="switch">
+        <div class="switch-content">
+            <div class="switch-info">
+                <h1>swtch to solor for  <br>green Future</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea vitae dicta repudiandae mollitia, blanditiis consectetur.</p>
+                <h4>comanies mission statment</h4>
+                <hr>
+                <h4>community involment</h4>
+                <hr>
+                <h4>our acivement</h4>
+                
+            </div>
+
+            <div class="switch-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIN67uudwqIMxnznO4MQpezzKq_7sAOkJukw&s" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="solution-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIN67uudwqIMxnznO4MQpezzKq_7sAOkJukw&s" alt="">
+        </div>
+        <div class="solution-info">
+            <h1>EMPORE YOUR HOME  <br> WITH SOLOR SOLUTION</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea vitae dicta repudiandae mollitia, blanditiis consectetur.</p>
+                <button>EXPLORE MORE</button>
+
+        </div>
+    </section>
+
+    <section class="feedback">
+        <div class="feedback-info">
+            <h1>WHAT OUR CUSTOMER ARE SAYING</h1>
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sequi at saepe. Et harum quod asperiores odio deserunt dolor magnam blanditiis corrupti hic, ex debitis totam perspiciatis quae aut natus quisquam similique eaque cum soluta mollitia provident. Perferendis, fugit provident?</P>
+        </div>
+
+        <div class="feedback-cards">
+            <div class="feedback-card">
+                <div class="top">
+                <h1>"</h1>
+                <div class="header">
+                    <span class="dot">.</span>
+                    <span class="dot">.</span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ea quis ipsum fuga eveniet sapiente et architecto laborum facilis!</p>
+                <h2>james oliver</h2>
+
+
+            </div>
+            <div class="feedback-card">
+                <div class="top">
+                <h1>"</h1>
+                <div class="header">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+
+                    
+
+                </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ea quis ipsum fuga eveniet sapiente et architecto laborum facilis!</p>
+                <h2>james oliver</h2>
+
+
+            </div>
+            <div class="feedback-card">
+                <div class="top">
+                <h1>"</h1>
+                <div class="header">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ea quis ipsum fuga eveniet sapiente et architecto laborum facilis!</p>
+                <h2>james oliver</h2>
+
+
+            </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>solor</p>
+            <Address>
+        <p>solardemo@exm.com</p>
+        <p>9865356789</p>
+            </Address>
+        </div>
+        <div>
+            <h1>Newsleer</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum dolor accusamus earum, possimus odio fugit dicta ut excepturi architecto nemo.</p>
+            <form action="">
+                <input type="email" placeholder="abc@gmail.com">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </footer>
+</body>
+</html>
