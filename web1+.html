@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="webddev1+.css">
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  
+  top: 0;
+  padding: 1rem 5%;
+  z-index: 1000;
+}
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3rem;
+}
+
+nav a {
+  display: flex;
+  text-decoration: none;
+  color: #161414;
+}
+
+nav a:hover {
+  color: aqua;
+}
+
+.logo {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: aqua;
+  border-radius: 50%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+  overflow: hidden;
+}
+
+.logo::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+@keyframes shine {
+  0% {
+    left: -50%;
+  }
+  50% {
+    left: 150%;
+  }
+  100% {
+    left: -50%;
+  }
+}
+
+.logo-text {
+  position: relative;
+  z-index: 1;
+  font-family: "Arial Black", sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 4rem 5%;
+  gap: 3rem;
+  background: linear-gradient(to bottom, #f3e6e6 0%, #fff 100%);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 span {
+  color: #bf1974;
+}
+
+.hero-content p {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.hero img {
+  border-radius: 15px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blue-bar {
+  height: 20px;
+  background-color: #bf1974;
+}
+
+.dry-cleaning {
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.dry-cleaning h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dry-cleaning > p {
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.process-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.process-card {
+  padding: 2rem;
+  border-radius: 10px;
+  color: #fff;
+  text-align: left;
+}
+
+.process-card:nth-child(1) {
+  background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+}
+
+.process-card:nth-child(2) {
+  background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+}
+
+.process-card:nth-child(3) {
+  background: linear-gradient(135deg, #7986cb 0%, #5c6bc0 100%);
+}
+.process-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.process-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.process-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.services {
+  padding: 4rem 5%;
+  background: #f8f9fa;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-card h3 {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+.office-suits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem 5%;
+}
+
+.office-suit-content {
+  text-align: center;
+}
+
+.office-suit-content h2 {
+  color: #bf1974;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.office-suit-content p {
+  color: #666;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-btn {
+  background-color: #3056f0;
+  padding: 20px 40px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  transition: background 0.3s;
+}
+
+.contact-btn:hover {
+  background: #1976d2;
+}
+
+.suits-img {
+  border-radius: 10px;
+  height: 400px;
+  width: 90%;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.suits-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.linen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 4rem 5%;
+  gap: 3rem;
+  background-color: #f8f9fa;
+}
+
+.linen-image {
+  border-radius: 10px;
+  height: 400px;
+  width: 90%;
+  overflow: hidden;
+}
+
+.linen-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.linen-content {
+  text-align: center;
+}
+
+.linen-content h2 {
+  text-align: center;
+  align-items: center;
+  color: #bf1974;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.linen-content p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.blog-section {
+  padding: 4rem 5%;
+}
+
+.blog-section h3 {
+  color: #999;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-section h2 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.blog-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: 1.5rem;
+}
+.blog-card-content p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.blog-card-content a {
+  color: #2196f3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+footer {
+            background: #f8f9fa;
+            padding: 3rem 5%;
+            border-top: 1px solid #a8a5a5;
+        }
+
+.footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }        
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+         .footer-logo .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            display: block;
+            flex-direction: column;
+        }
+
+          .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #2196F3;
+        }
+
+        .footer-section p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+         .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+         .social-icons .instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-icons .facebook {
+            background: #1877F2;
+        }
+
+        .social-icons .twitter {
+            background: #1DA1F2;
+        }
+
+        .social-icons .youtube {
+            background: #FF0000;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .newsletter-form button {
+            background: #2196F3;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #1976D2;
+        }
+
+                @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .suits,
+            .linen-section {
+                grid-template-columns: 1fr;
+            }
+
+            .linen-section {
+                grid-template-areas: 
+                    "content"
+                    "image";
+            }
+
+            .linen-img {
+                grid-area: image;
+            }
+
+            .linen-content {
+                grid-area: content;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .process-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .suits-content h2,
+            .linen-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+  </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <span class="logo-text">B</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1><span>Bibbentuckers</span><br />the dry cleaner</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Varius nam enim turpis
+          vulputate et sit id libero vitae. Amet blanquet elementum gravida
+          imperdiet.
+        </p>
+      </div>
+      <div class="hero-img">
+        <img
+          src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=600&fit=crop"
+          alt="Clean clothes on hangers"
+        />
+      </div>
+    </section>
+
+    <div class="blue-bar"></div>
+
+    <section class="dry-cleaning" id="about">
+      <h2>Dry cleaning in Los Angeles</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque commodi,
+        voluptatem laudantium placeat officia numquam fugiat iusto voluptates
+        accusamus tempora.
+      </p>
+
+      <div class="process-cards">
+        <div class="process-card">
+          <h3>01.</h3>
+          <h4>Cleaning</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil sint
+            quod corporis odit maxime accusantium.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <h3>01.</h3>
+          <h4>Cleaning</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil sint
+            quod corporis odit maxime accusantium.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <h3>01.</h3>
+          <h4>Cleaning</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil sint
+            quod corporis odit maxime accusantium.
+          </p>
+        </div>
+        </div>
+
+        </section>
+
+        <section class="services" id="services">
+          <h2>SERVICES</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=300&fit=crop"
+                  alt="Folded laundry"
+                />
+              </div>
+              <h3>Clean/Pressed Services</h3>
+            </div>
+
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=300&fit=crop"
+                  alt="Folded laundry"
+                />
+              </div>
+              <h3>Clean/Pressed Services</h3>
+            </div>
+
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=300&fit=crop"
+                  alt="Folded laundry"
+                />
+              </div>
+              <h3>Clean/Pressed Services</h3>
+            </div>
+
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=300&fit=crop"
+                  alt="Folded laundry"
+                />
+              </div>
+              <h3>Clean/Pressed Services</h3>
+            </div>
+          </div>
+</section>
+            <section class="office-suits">
+              <div class="office-suit-content">
+                <h2>OFFICE SUITS<br />DRY CLEANING</h2>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Blanditiis ipsum fugiat deleniti provident laborum hic eius
+                  incidunt recusandae aliquid culpa.
+                </p>
+                <button class="contact-btn">contact us</button>
+              </div>
+              <div class="suits-img">
+                <img
+                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=600&fit=crop"
+                  alt="Office suits hanging"
+                />
+              </div>
+            </section>
+
+            <section class="linen">
+              <div class="linen-img">
+                <img
+                  src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&h=600&fit=crop"
+                  alt="Clean folded linen"
+                />
+              </div>
+              <div class="linen-content">
+                <h2>DRY CLEANING<br />OF LINEN</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur. Vestibulum turpis
+                  cursus imperdiet gravida molestie integer cursus vitam ipsum
+                  libero.
+                </p>
+                <button class="contact-btn">Contact us</button>
+              </div>
+            </section>
+
+            <section class="blog-section" id="blog">
+              <h3>Stay informed</h3>
+              <h2>BLOG ABOUT CLEANING</h2>
+              <div class="blog-grid">
+                <div class="blog-card">
+                  <div class="blog-img">
+                    <img
+                      src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=300&fit=crop"
+                      alt="Laundry tips"
+                    />
+                  </div>
+                  <div class="blog-card-content">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Consequuntur, illum!...
+                    </p>
+                    <a href="#">Read More ›</a>
+                  </div>
+                </div>
+                <div class="blog-card">
+                  <div class="blog-img">
+                    <img
+                      src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=300&fit=crop"
+                      alt="Laundry tips"
+                    />
+                  </div>
+                  <div class="blog-card-content">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Consequuntur, illum!...
+                    </p>
+                    <a href="#">Read More ›</a>
+                  </div>
+                </div>
+                <div class="blog-card">
+                  <div class="blog-img">
+                    <img
+                      src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=300&fit=crop"
+                      alt="Laundry tips"
+                    />
+                  </div>
+                  <div class="blog-card-content">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Consequuntur, illum!...
+                    </p>
+                    <a href="#">Read More ›</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <footer id="contact">
+              <div class="footer-content">
+                <div class="footer-logo">
+                  <div class="logo">
+                    <span class="logo-text">B</span>
+                  </div>
+                  <p>Contact With us</p>
+                </div>
+
+                <div class="footer-section">
+                  <h3>Pages</h3>
+                  <ul>
+                    <li><a href="#home">Home page</a></li>
+                    <li><a href="#contact">Contact us</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#services">Our services</a></li>
+                  </ul>
+                </div>
+                <div class="footer-section">
+                  <h3>Contacts</h3>
+                  <p>cleanlaundry@gmail.com</p>
+                  <p>+91 888 000 0000</p>
+                  <p>+91 888 000 XXX XXX</p>
+                  <div class="social-icons">
+                    <a href="#" class="instagram" aria-label="Instagram"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                    <a href="#" class="facebook" aria-label="Facebook"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a href="#" class="twitter" aria-label="Twitter"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a href="#" class="youtube" aria-label="YouTube"
+                      ><i class="fab fa-youtube"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="footer-section">
+                  <h3>Subscribe</h3>
+                  <form
+                    class="newsletter-form"
+                
+                  >
+                    <input type="email" placeholder="Email" required />
+                    <button type="submit">Send</button>
+                  </form>
+                </div>
+              </div>
+            </footer>
+          
+        
+      
+    
+  </body>
+</html>
